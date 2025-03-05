@@ -5,6 +5,10 @@
 
 declare module "sst" {
   export interface Resource {
+    "MyTable": {
+      "name": string
+      "type": "sst.aws.Dynamo"
+    }
     "my-function": {
       "name": string
       "type": "sst.aws.Function"

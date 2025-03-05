@@ -16,10 +16,23 @@ export default $config({
     };
   },
   async run() {
+    console.info("this is the testing")
     const lambdaFunction = new sst.aws.Function("my-function",{
       handler: "src/lambda.handler",
       url: true
     })
+
+    // Configuring dynamodb table //
+    const table = new sst.aws.Dynamo("MyTable",{
+      fields : {
+        userId:"string",
+        noteId:"string"
+      },
+      primaryIndex : {hashKey:"userId",rangeKey:"noteId"}
+    })
+
+    console.info("this is table",table)
+
     return lambdaFunction
   },
 });
