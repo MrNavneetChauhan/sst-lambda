@@ -24,6 +24,7 @@ export default $config({
       },
       primaryIndex : {hashKey:"id"}
     })
+    
 
     console.info("this is the testing")
     const lambdaFunction = new sst.aws.Function("my-function",{
